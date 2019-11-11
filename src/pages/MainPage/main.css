@@ -1,0 +1,7 @@
+.opus-header {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 25px 10px;
+}
