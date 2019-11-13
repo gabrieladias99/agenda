@@ -12,19 +12,28 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      contacts: [],
-      show: false
+      contacts: []
     };
     this.service = new Service();
+    this.delete = this.delete.bind(this);
+    this.getContacs = this.getContacs.bind(this);
   }
 
   componentDidMount() {
+    this.getContacs();
+  }
+
+  getContacs() {
     this.service.all().then(response => {
       console.log(response);
       this.setState({
         contacts: [...response]
       });
     });
+  }
+
+  delete(id) {
+    this.service.delete(id).then(this.getContacs);
   }
 
   render() {
@@ -48,6 +57,7 @@ class Main extends Component {
                   name={contact.name}
                   ddd={contact.ddd}
                   telephone={contact.telephone}
+                  onClick={() => this.delete(contact._id)}
                 ></OpusContact>
               );
             })}

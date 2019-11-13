@@ -11,6 +11,10 @@
   color: rgb(24, 67, 178);
 }
 
+.no-border {
+  border: none;
+}
+
 .flex-direction-row {
   display: flex;
   align-items: center;
@@ -37,5 +41,9 @@
 
 .user {
   width: 30px;
+  margin-right: 10px;
+}
+
+.margin-10 {
   margin-right: 10px;
 }

@@ -45,6 +45,13 @@ class Service {
       .then(response => response.data)
       .catch(err => console.log(err));
   }
+
+  delete(id) {
+    return this.service
+      .delete(`/${id}`)
+      .then(response => response.data)
+      .catch(err => console.log(err));
+  }
 }
 
 export default Service;

@@ -2,6 +2,7 @@ import React, { useState, useEffect, Component } from "react";
 import { Link } from "react-router-dom";
 import "./OpusContactDetails.css";
 import OpusButton from "../OpusButton";
+import OpusTitle from "../OpusTitle";
 
 const OpusContactDetails = props => {
   const [nameState, setNameState] = useState(props.name);
@@ -19,6 +20,7 @@ const OpusContactDetails = props => {
         <Link to={"/"}>
           <img id="edit-button" src="/arrow_back-24px.svg" />
         </Link>
+        <OpusTitle>Editar Contato</OpusTitle>
         <Link to={"/"}>
           <img id="edit-button" src="/close-24px.svg" />
         </Link>
@@ -42,9 +44,9 @@ const OpusContactDetails = props => {
           onChange={handleChange}
         ></input>
       </div>
-      <OpusButton class="long"> OK </OpusButton>
+      <button class="long button"> OK </button>
 
-      <p> Apagar Contato </p>
+      <> Apagar Contato </>
     </section>
   );
 };

@@ -1,21 +1,33 @@
 import React, { Component } from "react";
 import "./OpusContact.css";
 import { Link } from "react-router-dom";
+import Service from "../../service";
 
 class OpusContact extends Component {
+  constructor(props) {
+    super(props);
+    this.service = new Service();
+  }
+
   render() {
+    console.log(this.props);
     return (
       <section className="opus-contact flex-direction-row width-12">
-        <Link className="no-link flex-direction-column">
+        <div className="flex-direction-column">
           <div className="flex-direction-row">
             <img className="user" src="/user.svg" />
-            <p>{this.props.name}</p>
+            <p className="margin-10">{this.props.name}</p>
+            <p>({this.props.ddd})</p>
+            <p className="margin-10">{this.props.telephone}</p>
           </div>
-        </Link>
+        </div>
         <div>
           <Link to={"/edit/" + this.props.id}>
             <img id="edit-button" src="/edit-24px.svg" />
           </Link>
+          <button className="no-border" onClick={this.props.onClick}>
+            <img src="/delete-24px.svg" />
+          </button>
         </div>
       </section>
     );
