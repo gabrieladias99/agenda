@@ -1,19 +1,25 @@
-import React from "react";
+import React, { Component } from "react";
 import "./OpusContact.css";
 import { Link } from "react-router-dom";
 
-const OpusContact = props => {
-  return (
-    <Link>
-      <section className="opus-contact">
-        <p>{props.name}</p>
+class OpusContact extends Component {
+  render() {
+    return (
+      <section className="opus-contact flex-direction-row width-12">
+        <Link className="no-link flex-direction-column">
+          <div className="flex-direction-row">
+            <img className="user" src="/user.svg" />
+            <p>{this.props.name}</p>
+          </div>
+        </Link>
         <div>
-          <img src="./edit-24px.svg" />
-          <img src="./more_vert-24px.svg" />
+          <Link to={"/edit/" + this.props.id}>
+            <img id="edit-button" src="/edit-24px.svg" />
+          </Link>
         </div>
       </section>
-    </Link>
-  );
-};
+    );
+  }
+}
 
 export default OpusContact;

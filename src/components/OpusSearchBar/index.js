@@ -3,7 +3,10 @@ import "./OpusSearchBar.css";
 
 const OpusSearchBar = props => {
   return (
-    <input className="opus-search-bar" placeholder={props.placeholder}></input>
+    <input
+      className="opus-input width-12"
+      placeholder={props.placeholder}
+    ></input>
   );
 };
 

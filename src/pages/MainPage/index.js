@@ -1,44 +1,59 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
+import Service from "../../service";
 import "./main.css";
 import OpusButton from "../../components/OpusButton";
 import OpusTitle from "../../components/OpusTitle";
 import OpusSearchBar from "../../components/OpusSearchBar";
 import OpusContact from "../../components/OpusContact";
 import OpusContactList from "../../components/OpusContactList";
-import "./names.json";
-
-let pessoas = ["Gabriela Dias", "Andrea Dias", "Guilherme"];
+import OpusSafeArea from "../../components/OpusSafeArea";
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      names: []
+      contacts: [],
+      show: false
     };
+    this.service = new Service();
   }
 
   componentDidMount() {
-    this.setState({
-      names: pessoas
+    this.service.all().then(response => {
+      console.log(response);
+      this.setState({
+        contacts: [...response]
+      });
     });
   }
 
   render() {
     return (
-      <>
+      <OpusSafeArea>
+        <header className="opus-header">
+          <OpusTitle> Contatos</OpusTitle>
+          <OpusButton class="circular" to="/new">
+            <img id="add-button" src="./add.svg" />
+          </OpusButton>
+        </header>
         <main>
-          <div className="opus-header">
-            <OpusTitle child="Contatos"></OpusTitle>
-            <OpusButton children="+" class="circular"></OpusButton>
-          </div>
           <OpusSearchBar placeholder="Pesquisar"></OpusSearchBar>
+
+          <OpusContactList className="flex-direction-column">
+            {this.state.contacts.map(contact => {
+              return (
+                <OpusContact
+                  key={contact._id}
+                  id={contact._id}
+                  name={contact.name}
+                  ddd={contact.ddd}
+                  telephone={contact.telephone}
+                ></OpusContact>
+              );
+            })}
+          </OpusContactList>
         </main>
-        <OpusContactList>
-          {this.state.names.map(name => {
-            return <OpusContact name={name}></OpusContact>;
-          })}
-        </OpusContactList>
-      </>
+      </OpusSafeArea>
     );
   }
 }
