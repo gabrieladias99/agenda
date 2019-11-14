@@ -5,35 +5,40 @@ import OpusTitle from "../../components/OpusTitle";
 import OpusSafeArea from "../../components/OpusSafeArea";
 
 const OpusEditContact = props => {
-  const [values, setValues] = useState({ name: "", ddd: "", telephone: "" });
+  const [values, setValues] = useState({
+    name: "",
+    ddd: "",
+    telephone: "",
+    id: props.match.params.id
+  });
   const service = new Service();
 
   const handleFormSubmit = event => {
     event.preventDefault();
-    const { name, ddd, telephone } = values;
+    const { name, ddd, telephone, id } = values;
     service
-      .addContact(name, ddd, telephone)
+      .editContact(id, name, ddd, telephone)
       .then(response => {
         console.log(response);
       })
       .catch(e => console.log(e));
   };
 
+  // useEffect(() => {
+  //   service.getOneContact(props.match.params.id).then(response => {
+  //     console.log(response);
+  //     setValues({
+  //       name: response.name,
+  //       ddd: response.ddd,
+  //       telephone: response.telephone
+  //     });
+  //   });
+  // }, [props.match.params.id, service]);
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setValues({ ...values, [name]: value });
   };
-
-  useEffect(() => {
-    service.getOneContact(props.match.params.id).then(response => {
-      console.log(response);
-      setValues({
-        name: response.name,
-        ddd: response.ddd,
-        telephone: response.telephone
-      });
-    });
-  });
 
   return (
     <OpusSafeArea>

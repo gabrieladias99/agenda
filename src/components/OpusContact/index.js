@@ -17,7 +17,7 @@ const OpusContact = props => {
         <Link to={"/edit/" + props.id}>
           <img id="edit-button" src="/edit-24px.svg" alt="Edit Icon" />
         </Link>
-        <button className="no-border" onClick={props.onClick}>
+        <button className="no-border" onClick={props.onClickDelete}>
           <img src="/delete-24px.svg" alt="Delete Icon" />
         </button>
       </div>

@@ -56,7 +56,7 @@ class Main extends Component {
                   name={contact.name}
                   ddd={contact.ddd}
                   telephone={contact.telephone}
-                  onClick={() => this.delete(contact._id)}
+                  onClickDelete={() => this.delete(contact._id)}
                 ></OpusContact>
               );
             })}
