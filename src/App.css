@@ -7,3 +7,53 @@
   margin: 0;
   box-sizing: border-box;
 }
+/* Design System baseado em 12 colunas */
+.width-3 {
+  width: 25%;
+}
+
+.width-6 {
+  width: 50%;
+}
+.width-9 {
+  width: 75%;
+}
+
+.width-12 {
+  width: 100%;
+}
+/* Formatações de texto */
+.no-link {
+  text-decoration: none;
+  color: rgb(24, 67, 178);
+}
+
+.align-text-center {
+  text-align: center;
+}
+
+.no-border {
+  border: none;
+}
+
+/* Flex-directions gerais */
+.flex-direction-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-direction-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Usada como SafeArea */
+@media (min-width: 576px) {
+  .margin-borders {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import "./editpage.css";
 import OpusContactDetails from "../../components/OpusContactDetails";
 import Service from "../../service";
-import OpusSafeArea from "../../components/OpusSafeArea";
 
 class Edit extends Component {
   constructor(props) {
@@ -22,7 +20,6 @@ class Edit extends Component {
         ddd: response[0].ddd,
         telephone: response[0].telephone
       });
-      console.log(response);
     });
   }
 

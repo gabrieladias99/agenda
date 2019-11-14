@@ -18,7 +18,7 @@ class App extends Component {
           ></Route>
           <Route
             exact
-            path="/new"
+            path="/novocontato"
             render={props => <Create {...props} />}
           ></Route>
         </Switch>

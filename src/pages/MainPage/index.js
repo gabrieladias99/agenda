@@ -22,10 +22,8 @@ class Main extends Component {
   componentDidMount() {
     this.getContacs();
   }
-
   getContacs() {
     this.service.all().then(response => {
-      console.log(response);
       this.setState({
         contacts: [...response]
       });
@@ -39,10 +37,10 @@ class Main extends Component {
   render() {
     return (
       <OpusSafeArea>
-        <header className="opus-header">
+        <header className="flex-direction-row">
           <OpusTitle> Contatos</OpusTitle>
-          <OpusButton class="circular" to="/new">
-            <img id="add-button" src="./add.svg" />
+          <OpusButton class="circular" to="/novocontato">
+            <img id="add-button" src="./add.svg" alt="Add Icon" />
           </OpusButton>
         </header>
         <main>

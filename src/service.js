@@ -10,18 +10,23 @@ class Service {
   }
 
   addContact(name, ddd, telephone) {
-    return this.service
-      .post("/add", {
-        name,
-        ddd,
-        telephone
-      })
-      .then(response => response.data)
-      .catch(err => console.log(err));
+    if (ddd.length !== 2) {
+      return;
+    } else if (name.length < 1) {
+      return;
+    } else if (telephone.length >= 8 && telephone.length <= 9) {
+      return this.service
+        .post("/add", {
+          name,
+          ddd,
+          telephone
+        })
+        .then(response => response.data)
+        .catch(err => console.log(err));
+    }
   }
 
   getOneContact(id) {
-    console.log(id);
     return this.service
       .get(`/${id}`)
       .then(response => response.data)

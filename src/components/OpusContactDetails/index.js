@@ -1,7 +1,6 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./OpusContactDetails.css";
-import OpusButton from "../OpusButton";
 import OpusTitle from "../OpusTitle";
 
 const OpusContactDetails = props => {
@@ -9,7 +8,6 @@ const OpusContactDetails = props => {
 
   const handleChange = event => {
     const updateName = [...nameState];
-    console.log(updateName);
     updateName[event.target.dataset.id][event.target.name] = event.target.value;
     setNameState(updateName);
   };
@@ -18,11 +16,11 @@ const OpusContactDetails = props => {
     <section className="opus-contact-details flex-direction-column align-text-center width-12">
       <div className="flex-direction-row width-12">
         <Link to={"/"}>
-          <img id="edit-button" src="/arrow_back-24px.svg" />
+          <img id="edit-button" src="/arrow_back-24px.svg" alt="Edit Icon" />
         </Link>
         <OpusTitle>Editar Contato</OpusTitle>
         <Link to={"/"}>
-          <img id="edit-button" src="/close-24px.svg" />
+          <img id="edit-button" src="/close-24px.svg" alt="Edit Button" />
         </Link>
       </div>
       <input
@@ -45,8 +43,6 @@ const OpusContactDetails = props => {
         ></input>
       </div>
       <button class="long button"> OK </button>
-
-      <> Apagar Contato </>
     </section>
   );
 };

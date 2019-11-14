@@ -6,39 +6,6 @@
   margin: 3px;
 }
 
-.no-link {
-  text-decoration: none;
-  color: rgb(24, 67, 178);
-}
-
-.no-border {
-  border: none;
-}
-
-.flex-direction-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.flex-direction-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.align-text-center {
-  text-align: center;
-}
-
-@media (min-width: 576px) {
-  .margin-borders {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
-
 .user {
   width: 30px;
   margin-right: 10px;

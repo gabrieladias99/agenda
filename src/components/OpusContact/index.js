@@ -10,12 +10,11 @@ class OpusContact extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <section className="opus-contact flex-direction-row width-12">
         <div className="flex-direction-column">
           <div className="flex-direction-row">
-            <img className="user" src="/user.svg" />
+            <img className="user" src="/user.svg" alt="User Icon" />
             <p className="margin-10">{this.props.name}</p>
             <p>({this.props.ddd})</p>
             <p className="margin-10">{this.props.telephone}</p>
@@ -23,10 +22,10 @@ class OpusContact extends Component {
         </div>
         <div>
           <Link to={"/edit/" + this.props.id}>
-            <img id="edit-button" src="/edit-24px.svg" />
+            <img id="edit-button" src="/edit-24px.svg" alt="Edit Icon" />
           </Link>
           <button className="no-border" onClick={this.props.onClick}>
-            <img src="/delete-24px.svg" />
+            <img src="/delete-24px.svg" alt="Delete Icon" />
           </button>
         </div>
       </section>
