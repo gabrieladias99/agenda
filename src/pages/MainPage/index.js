@@ -22,6 +22,7 @@ class Main extends Component {
   componentDidMount() {
     this.getContacs();
   }
+
   getContacs() {
     this.service.all().then(response => {
       this.setState({

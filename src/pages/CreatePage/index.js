@@ -15,6 +15,7 @@ const OpusCreateContact = props => {
       .addContact(name, ddd, telephone)
       .then(response => {
         console.log(response);
+        setValues({ name: "", ddd: "", telephone: "" });
       })
       .catch(e => console.log(e));
   };
